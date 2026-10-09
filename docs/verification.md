@@ -53,3 +53,8 @@ See [retro verification](../retro-catalog/VERIFICATION.md) and [source credits](
 ![Retro catalog desktop](retro-catalog-desktop.png)
 
 ![Retro catalog mobile](retro-catalog-mobile.png)
+
+
+## Hosted deployment — 2026-10-09
+
+The separate frontend/backend repositories are connected at https://the-day.yangon-tech-by-okker.site on 142.93.60.71. HTTP redirects to valid HTTPS, the API and local artwork respond successfully, and Certbot renewal dry-run passes. MySQL is private with a persistent project volume. Catalog/image checks cover all 16 titles. Hosted API checks pass for both role logins, customer admin-access denial, rental idempotency, history and repeated return. Chrome rent/history/admin-return checks use an SSH preview of these same hosted containers because the local ISP resolver cached the initial nonexistent record. Database restart preserves 16 titles, two accounts and two returned verification rentals. No live credentials are committed. See deploy/README.md for operation details.

@@ -13,12 +13,12 @@ Frontend and backend are deployed together at **https://the-day.yangon-tech-by-o
 
 ```sh
 cd /var/www/the-days-we-felt-alive/backend/deploy
-docker compose up -d --build
+docker compose up -d --no-build
 docker compose ps
 docker compose logs --tail=50 express-api
 ```
 
-The Compose build expects sibling repositories. Both containers restart automatically. `docker compose down` preserves data; do not use `down -v` for routine deployments.
+The Compose build expects sibling repositories. The initial release compiled Angular locally and uploaded its static bundle for a small Nginx serving image, keeping build memory use off this shared server. Use `--no-build` for routine restarts with the installed images; `--build` rebuilds the source and needs sufficient available memory. Both containers restart automatically. `docker compose down` preserves data; do not use `down -v` for routine deployments.
 
 ## TLS and renewal
 
@@ -29,3 +29,9 @@ certbot certonly --webroot -w /var/www/letsencrypt -d the-day.yangon-tech-by-okk
 ```
 
 Then use the installed HTTPS Nginx site. The server's existing Certbot schedule checks twice daily and its deployment hook reloads Nginx after renewal. Only the new project's site is added; existing sites are retained.
+
+## Verified release — 2026-10-09
+
+HTTPS certificate validation and HTTP-to-HTTPS redirects pass. Certificate renewal dry-run succeeds; the certificate expires on 2027-01-07. The API health endpoint and all 16 catalog/image routes pass. Admin/customer login, role denial, rental creation, duplicate request protection, history, return and repeated return pass. Chrome also verified customer rent/history and admin return against the hosted containers through an SSH preview tunnel. The local ISP resolver cached the initial missing DNS record, while Google/Cloudflare resolvers and server-side public-domain requests already resolve correctly.
+
+MySQL was restarted, after which 16 catalog titles, two demo accounts and two returned demo rentals remained. All copies are available for the instructor's own demo. A private SQL backup is saved at `/root/alive-backups/ready-20261009.sql`. Existing XComic admin health remains HTTP 200.
