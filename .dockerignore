@@ -5,3 +5,8 @@ tests
 docs
 
 .tmp
+
+.env.*
+**/.env
+**/.env.*
+deploy
