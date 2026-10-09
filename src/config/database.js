@@ -9,6 +9,7 @@ export const pool = mysql.createPool({
 export async function transaction(work) {
   const db = await pool.getConnection();
   try {
+    await db.query('SET TRANSACTION ISOLATION LEVEL READ COMMITTED');
     await db.beginTransaction();
     const result = await work(db);
     await db.commit();

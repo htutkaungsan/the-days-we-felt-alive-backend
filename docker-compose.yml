@@ -3,7 +3,7 @@ services:
   express-api:
     build: .
     ports:
-      - "127.0.0.1:${PORT:-3000}:3000"
+      - "127.0.0.1:${PORT:-3017}:3000"
     environment:
       PORT: 3000
       DB_HOST: database
