@@ -1,0 +1,442 @@
+{
+  "name": "The Days We Felt Alive — Retro Catalog",
+  "era": "1990–2014",
+  "researched_on": "2026-10-09",
+  "currency": "THB",
+  "notes": [
+    "Music entries are complete albums, with selected songs listed as highlights.",
+    "Stock, prices and rental format are fictional shop inventory; release years describe the original work.",
+    "Descriptions are original short catalog blurbs. No lyrics, music or films are included.",
+    "Thai artworks are AI-edited retro-frame variants. English artworks retain the original files and use a matching frontend frame. All original source images are retained for attribution and comparison."
+  ],
+  "items": [
+    {
+      "catalog_key": "boomerang",
+      "title": "Boomerang",
+      "original_title": "บูมเมอแรง",
+      "creator": "Bird Thongchai",
+      "category": "music",
+      "format": "CD",
+      "release_year": 1990,
+      "language": "Thai",
+      "genre": "Pop",
+      "description": "Bright Thai pop with playful hooks and the unmistakable voice of Bird Thongchai.",
+      "featured_tracks": "บูมเมอแรง · คู่กัด · หมอกหรือควัน",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/boomerang.png",
+      "sources": {
+        "metadata": [
+          "https://music.apple.com/us/album/%E0%B8%9A-%E0%B8%A1%E0%B9%80%E0%B8%A1%E0%B8%AD%E0%B9%81%E0%B8%A3%E0%B8%87/1792752699",
+          "https://music.apple.com/th/album/%E0%B8%9A-%E0%B8%A1%E0%B9%80%E0%B8%A1%E0%B8%AD%E0%B9%81%E0%B8%A3%E0%B8%87/1792752699?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/0b/e1/a5/0be1a57e-4fb2-99d3-c578-79ae6d6e904d/888332969116.jpg/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": null,
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "moderndog",
+      "title": "Moderndog",
+      "original_title": "เสริมสุขภาพ",
+      "creator": "Moderndog",
+      "category": "music",
+      "format": "CD",
+      "release_year": 1994,
+      "language": "Thai",
+      "genre": "Alternative rock",
+      "description": "A landmark Thai alternative album, bringing restless guitars and a new sound to the 1990s.",
+      "featured_tracks": "บุษบา · บางสิ่ง · หมดเวลา",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/moderndog.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Modern_Dog",
+          "https://music.apple.com/th/album/moderndog-%E0%B9%80%E0%B8%AA%E0%B8%A3-%E0%B8%A1%E0%B8%AA-%E0%B8%82%E0%B8%A0%E0%B8%B2%E0%B8%9E/557702798?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music/v4/91/1a/1c/911a1c76-35bc-1f6a-84b0-f9cfc56548b5/886443614628.jpg/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": "Original album: 1994. Apple Music lists the later 2012 digital edition.",
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "lo-society",
+      "title": "LO-Society",
+      "original_title": "โลโซไซตี้",
+      "creator": "LOSO",
+      "category": "music",
+      "format": "CD",
+      "release_year": 1996,
+      "language": "Thai",
+      "genre": "Rock",
+      "description": "Straightforward Thai rock: memorable riffs, friendship and everyday feelings.",
+      "featured_tracks": "ไม่ต้องห่วงฉัน · เราและนาย · ฉันหรือเธอ (ที่เปลี่ยนไป)",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/lo-society.png",
+      "sources": {
+        "metadata": [
+          "https://music.apple.com/us/album/lo-society/1792753212",
+          "https://music.apple.com/th/album/lo-society/1792753212?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/41/d8/3e/41d83ef1-59de-ee49-2903-bf8cc00c4747/888332981460.jpg/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": "Band: LOSO. Apple Music catalogs this album under Sek Loso.",
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "believe",
+      "title": "Believe",
+      "original_title": null,
+      "creator": "Bodyslam",
+      "category": "music",
+      "format": "CD",
+      "release_year": 2005,
+      "language": "Thai",
+      "genre": "Rock",
+      "description": "Anthemic Thai rock about belief, persistence and the people who keep us going.",
+      "featured_tracks": "ความเชื่อ · ขอบฟ้า · คนที่ถูกรัก",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/believe.png",
+      "sources": {
+        "metadata": [
+          "https://www.youtube.com/watch?v=ff7ao5s0heQ",
+          "https://music.apple.com/th/album/believe/1792749726?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f6/92/a9/f692a93f-3c3f-c2dd-e7a4-04d7cd724833/888332980272.jpg/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": null,
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "dangerous",
+      "title": "Dangerous",
+      "original_title": null,
+      "creator": "Michael Jackson",
+      "category": "music",
+      "format": "CD",
+      "release_year": 1991,
+      "language": "English",
+      "genre": "Pop / R&B",
+      "description": "Dance grooves and sweeping pop ballads from Michael Jackson’s early-1990s era.",
+      "featured_tracks": "Black or White · Remember the Time · Heal the World",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/dangerous.jpg",
+      "sources": {
+        "metadata": [
+          "https://www.michaeljackson.com/albums/dangerous/"
+        ],
+        "image": "https://en.wikipedia.org/wiki/Dangerous_(Michael_Jackson_album)",
+        "rights": "Album artwork belongs to its respective rights holders.",
+        "note": null,
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "morning-glory",
+      "title": "(What's the Story) Morning Glory?",
+      "original_title": null,
+      "creator": "Oasis",
+      "category": "music",
+      "format": "CD",
+      "release_year": 1995,
+      "language": "English",
+      "genre": "Britpop",
+      "description": "Big guitars and sing-along choruses that became defining sounds of 1990s Britpop.",
+      "featured_tracks": "Wonderwall · Don't Look Back in Anger · Champagne Supernova",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/morning-glory.jpg",
+      "sources": {
+        "metadata": [
+          "https://oasisinet.com/music/whats-the-story-morning-glory/",
+          "https://music.apple.com/th/album/whats-the-story-morning-glory-remastered/894949345?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music124/v4/3a/ed/91/3aed9186-a837-b54b-2a67-ab886fc2a542/886444642767.jpg/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders.",
+        "note": "Original album: 1995. Image/track listing sourced from the remastered digital edition.",
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "hybrid-theory",
+      "title": "Hybrid Theory",
+      "original_title": null,
+      "creator": "Linkin Park",
+      "category": "music",
+      "format": "CD",
+      "release_year": 2000,
+      "language": "English",
+      "genre": "Alternative metal",
+      "description": "An energetic blend of guitar, rap and electronics, full of turn-of-the-millennium emotion.",
+      "featured_tracks": "In the End · Crawling · One Step Closer",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/hybrid-theory.jpg",
+      "sources": {
+        "metadata": [
+          "https://www.rhino.com/product/hybrid-theory",
+          "https://music.apple.com/th/album/hybrid-theory/528436018?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Features115/v4/f0/31/b2/f031b2b2-bcf0-6102-426f-e0b2c7437415/dj.vrgpwamf.jpg/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders.",
+        "note": null,
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "adele-21",
+      "title": "21",
+      "original_title": null,
+      "creator": "Adele",
+      "category": "music",
+      "format": "CD",
+      "release_year": 2011,
+      "language": "English",
+      "genre": "Pop / Soul",
+      "description": "Powerful vocals and heartfelt songs about heartbreak, memory and moving forward.",
+      "featured_tracks": "Rolling in the Deep · Someone Like You · Set Fire to the Rain",
+      "total_copies": 3,
+      "daily_fee": 15,
+      "daily_late_fee": 5,
+      "image_url": "/images/retro/adele-21.jpg",
+      "sources": {
+        "metadata": [
+          "https://www.xlrecordings.com/releases/21",
+          "https://music.apple.com/th/album/21/403037872?uo=4"
+        ],
+        "image": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/f8/df/0a/f8df0ac9-ae76-9dae-86d3-4e913fc54fb1/634904152062.png/600x600bb.jpg",
+        "rights": "Album artwork belongs to its respective rights holders.",
+        "note": null,
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "nang-nak",
+      "title": "Nang Nak",
+      "original_title": "นางนาก",
+      "creator": "Nonzee Nimibutr",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 1999,
+      "language": "Thai",
+      "genre": "Horror / Romance",
+      "description": "A village love story meets the enduring Thai legend of Mae Nak.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/nang-nak.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Nang_Nak",
+          "https://contentthailand.com/wp-content/uploads/2021/10/Thai-Film-Directory-2011-2013.pdf"
+        ],
+        "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/06/Nangnakposter.jpg/330px-Nangnakposter.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+        "rights": "Promotional poster belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "ong-bak",
+      "title": "Ong-Bak",
+      "original_title": "องค์บาก",
+      "creator": "Prachya Pinkaew",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 2003,
+      "language": "Thai",
+      "genre": "Action / Martial arts",
+      "description": "A young martial artist travels to Bangkok to recover a treasured village relic.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/ong-bak.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Ong-Bak",
+          "https://contentthailand.com/wp-content/uploads/2021/10/Thai-Film-Directory-2011-2013.pdf"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/1/11/ONG-BAK.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "love-of-siam",
+      "title": "The Love of Siam",
+      "original_title": "รักแห่งสยาม",
+      "creator": "Chookiat Sakveerakul",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 2007,
+      "language": "Thai",
+      "genre": "Romance / Drama",
+      "description": "Music and a reunion between childhood friends open a tender story of love and family.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/love-of-siam.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Love_of_Siam",
+          "https://strandreleasing.com/films/love-siam/"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/5/5d/Love_of_siam_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "pee-mak",
+      "title": "Pee Mak",
+      "original_title": "พี่มาก..พระโขนง",
+      "creator": "Banjong Pisanthanakun",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 2013,
+      "language": "Thai",
+      "genre": "Horror / Comedy",
+      "description": "Friendship, comedy and a ghostly romance give the Mae Nak legend a playful twist.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/pee-mak.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Pee_Mak",
+          "https://contentthailand.com/wp-content/uploads/2021/10/Thai-Film-Directory-2011-2013.pdf"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/d/dc/Pee_Mak_International_Poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders; AI-edited catalog variant with a retro border; source artwork retained.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "AI-edited retro-frame variant; original retained for comparison."
+      }
+    },
+    {
+      "catalog_key": "titanic",
+      "title": "Titanic",
+      "original_title": null,
+      "creator": "James Cameron",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 1997,
+      "language": "English",
+      "genre": "Romance / Drama",
+      "description": "Two young passengers form an unlikely connection aboard the ill-fated ocean liner.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/titanic.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Titanic_(1997_film)"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/1/18/Titanic_%281997_film%29_poster.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "the-matrix",
+      "title": "The Matrix",
+      "original_title": null,
+      "creator": "The Wachowskis",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 1999,
+      "language": "English",
+      "genre": "Science fiction / Action",
+      "description": "A computer programmer discovers that his familiar world hides an extraordinary secret.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/the-matrix.png",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/The_Matrix"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/d/db/The_Matrix.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "the-dark-knight",
+      "title": "The Dark Knight",
+      "original_title": null,
+      "creator": "Christopher Nolan",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 2008,
+      "language": "English",
+      "genre": "Crime / Superhero",
+      "description": "Gotham’s fight against organized crime is shaken by a criminal who thrives on chaos.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/the-dark-knight.jpg",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/The_Dark_Knight"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    },
+    {
+      "catalog_key": "interstellar",
+      "title": "Interstellar",
+      "original_title": null,
+      "creator": "Christopher Nolan",
+      "category": "movie",
+      "format": "DVD",
+      "release_year": 2014,
+      "language": "English",
+      "genre": "Science fiction / Drama",
+      "description": "A journey beyond Earth becomes a story about survival, time and the bonds of family.",
+      "featured_tracks": null,
+      "total_copies": 3,
+      "daily_fee": 25,
+      "daily_late_fee": 10,
+      "image_url": "/images/retro/interstellar.jpg",
+      "sources": {
+        "metadata": [
+          "https://en.wikipedia.org/wiki/Interstellar_(film)",
+          "https://www.paramountpictures.com/movies/interstellar"
+        ],
+        "image": "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "rights": "Promotional poster belongs to its respective rights holders.",
+        "note": "release_year records the original film release, not the DVD pressing date.",
+        "artwork_treatment": "Original source artwork preserved; framed consistently in the frontend. AI editing of these assets was not available."
+      }
+    }
+  ]
+}

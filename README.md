@@ -12,7 +12,7 @@ Requirements: Docker Desktop or Docker Engine with Compose. Ports 3017 and 4200 
 docker compose up -d --build
 ```
 
-Run this command from this backend repository. It starts Express and MySQL, creates the three tables and seeds the admin and six fictional catalog titles. API: `http://localhost:3017/api/v1`. Health: `http://localhost:3017/api/v1/health`.
+Run this command from this backend repository. It starts Express and MySQL, creates the three tables and seeds the admin and 16 researched retro catalog titles (1990–2014). API: `http://localhost:3017/api/v1`. Health: `http://localhost:3017/api/v1/health`.
 
 For a local classroom demo, no environment file is required. Default admin: **admin@example.com / ChangeMe123!**. These are local sample credentials only. The API port binds to localhost and MySQL has no published port. Before any public deployment, copy `.env.example` to `.env` and replace JWT, admin and database credentials with your own values. Never commit `.env`. Existing admin passwords do not reset on restart.
 
@@ -32,7 +32,7 @@ cd ../frontend
 docker compose up -d --build
 ```
 
-Open `http://localhost:4200`. Start the backend first: frontend Nginx joins the existing `alive-backend_rental` network and forwards `/api/` to `express-api:3000`. This works without exposing MySQL or requiring browser CORS configuration. Angular development mode uses a proxy to `http://localhost:3017`.
+Open `http://localhost:4200`. Start the backend first: frontend Nginx joins the existing `alive-backend_rental` network and forwards `/api/` and `/images/` to `express-api:3000`. This works without exposing MySQL or requiring browser CORS configuration. Angular development mode uses a proxy to `http://localhost:3017`.
 
 ## Architecture and communication
 
@@ -52,10 +52,18 @@ Node.js 24, Express 5, MySQL 8.4, bcryptjs and jsonwebtoken power the backend. A
 ![ER diagram](docs/er-diagram.png)
 
 - `users`: account details, password hash, role, active state and timestamp. Admin/customer share this table.
-- `media`: title, creator, music/movie category, CD/DVD format, total copies, per-day fees, archive state and timestamp.
+- `media`: title, creator, music/movie category, CD/DVD format, total copies, per-day fees, archive state and timestamp; optional retro metadata includes original Thai title, original release year, language, genre, description, track highlights and local image URL. `catalog_key` uniquely identifies imported titles.
 - `rentals`: user/media foreign keys, unique customer request key, dates, days, fee snapshots and totals.
 
 A user has zero or many rentals (1:N). A media title has zero or many rentals (1:N). Every rental belongs to exactly one customer and one media title. Users and media have an N:M relationship resolved through rentals. There is no artificial 1:1 relationship because this domain does not need one. See `database/schema.sql` for complete field types, PK/FK, indexes and checks.
+
+## Retro catalog and local artwork
+
+The [retro catalog](retro-catalog/README.md) contains four Thai albums, four English albums, four Thai movies and four English movies from 1990–2014. Import [retro-catalog.sql](retro-catalog/retro-catalog.sql), or run `docker compose exec -T express-api npm run seed:retro`. See [catalog.json](retro-catalog/catalog.json) and [source credits](retro-catalog/SOURCES.md) for release references and reissue notes. Re-import skips matching records and preserves shop edits and rental history. Startup adds optional metadata columns to an older database without resetting it.
+
+Catalog artwork is stored in `public/images/retro/`; Express serves it at `/images/retro/<catalog-key>.png` or `.jpg`. Thai images use AI-edited retro frames; English artwork keeps its original file and uses a matching CSS frame. Original source images are retained in the `originals/` subfolder. Angular and frontend Nginx proxy `/images/` to the backend. Album and movie artwork belongs to its respective rights holders; no music, films or lyrics are included.
+
+Thai releases appear first in the curated catalog. Catalog search matches both English titles and original Thai titles. Media POST/PATCH also accept these optional fields: `original_title` (up to 150 characters), `release_year` (integer 1990–2014), `language` (`Thai`/`English`), `genre` (100), `description` (1000), `featured_tracks` (500) and `image_url` (255; local `/images/retro/` JPG/PNG/WebP path only). Use `null` to clear an optional field. Existing media requests without metadata still work. `catalog_key` is maintained by the importer, not by the API.
 
 ## Rental rules
 
@@ -68,7 +76,7 @@ A user has zero or many rentals (1:N). A media title has zero or many rentals (1
 - Customer-generated UUID v4 keys prevent repeated creation. Retrying after a network failure must reuse the same key and payload. A unique `(customer_id, request_key)` constraint is the final database guard.
 - Return is idempotent. Customers cannot return their own records or read another customer's record.
 - Delete rejects records with active rentals. With returned history, it archives media or deactivates customers. Without history, it physically deletes the record. Admins can unarchive/reactivate through PATCH. Inactive users cannot use existing JWTs.
-- Sample titles are fictional. Catalog seeding only runs when the media table is empty and `SEED_SAMPLE_DATA=true`.
+- Retro catalog seeding runs when the media table is empty and `SEED_SAMPLE_DATA=true`. Existing installations can import the same 16 titles without resetting data. Stock and rental prices are fictional demo values; release metadata and artwork sources are documented.
 - No online payments, deliveries, pending approvals, image uploads or notifications. Recorded fees are charges, not collected revenue.
 
 ## Authentication and API conventions
@@ -267,7 +275,7 @@ Failure example `401`:
 
 **Authentication:** Public, optional Bearer token.
 
-**Body / parameters:** Optional query: search (title substring, max 150), category (music/movie), format (CD/DVD). Admin sees archived items. Public/customers see listed items only.
+**Body / parameters:** Optional query: search (English/original Thai title substring, max 150), category (music/movie), format (CD/DVD). Admin sees archived items. Public/customers see listed items only.
 
 Success `200`:
 

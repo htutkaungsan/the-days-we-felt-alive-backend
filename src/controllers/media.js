@@ -13,6 +13,13 @@ function validate(body, partial = false) {
           "total_copies",
           "daily_fee",
           "daily_late_fee",
+          "original_title",
+          "release_year",
+          "language",
+          "genre",
+          "description",
+          "featured_tracks",
+          "image_url",
           "archived",
         ]
       : [
@@ -23,6 +30,13 @@ function validate(body, partial = false) {
           "total_copies",
           "daily_fee",
           "daily_late_fee",
+          "original_title",
+          "release_year",
+          "language",
+          "genre",
+          "description",
+          "featured_tracks",
+          "image_url",
         ],
   );
   const data = {};
@@ -36,6 +50,37 @@ function validate(body, partial = false) {
     data.total_copies = v.integer(body.total_copies, "total_copies", 1, 999);
   for (const k of ["daily_fee", "daily_late_fee"])
     if (!partial || body[k] !== undefined) data[k] = v.money(body[k], k);
+  for (const [key, max] of [
+    ["original_title", 150],
+    ["genre", 100],
+    ["description", 1000],
+    ["featured_tracks", 500],
+  ]) {
+    if (body[key] !== undefined)
+      data[key] =
+        body[key] === null || body[key] === ""
+          ? null
+          : v.text(body[key], key, max);
+  }
+  if (body.release_year !== undefined)
+    data.release_year =
+      body.release_year === null
+        ? null
+        : v.integer(body.release_year, "release_year", 1990, 2014);
+  if (body.language !== undefined)
+    data.language =
+      body.language === null || body.language === ""
+        ? null
+        : v.choice(body.language, "language", ["Thai", "English"]);
+  if (body.image_url !== undefined) {
+    if (body.image_url === null || body.image_url === "") data.image_url = null;
+    else {
+      const url = v.text(body.image_url, "image_url", 255);
+      if (!/^\/images\/retro\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/.test(url))
+        fail(400, "image_url must be a local /images/retro/ image path");
+      data.image_url = url;
+    }
+  }
   if (body.archived !== undefined) {
     if (typeof body.archived !== "boolean")
       fail(400, "archived must be boolean");

@@ -312,3 +312,55 @@ test("Server rejects weak new passwords in registration and customer create/upda
     .send({ password: "Password123" })
     .expect(400);
 });
+
+test("Retro import is repeatable, metadata validates and local artwork is served", async () => {
+  const { importRetroCatalog, upgradeCatalogSchema } =
+    await import("../../src/config/retro-catalog.js");
+  await upgradeCatalogSchema();
+  assert.equal((await importRetroCatalog()).inserted, 16);
+  const [[row]] = await pool.query(
+    "SELECT * FROM media WHERE catalog_key='boomerang'",
+  );
+  assert.equal(row.release_year, 1990);
+  assert.equal(row.language, "Thai");
+  assert.equal(row.original_title, "บูมเมอแรง");
+  await authorize("patch", `/media/${row.id}`, admin)
+    .send({ daily_fee: 19, total_copies: 5 })
+    .expect(200);
+  assert.equal((await importRetroCatalog()).inserted, 0);
+  const [[preserved]] = await pool.query(
+    "SELECT daily_fee,total_copies FROM media WHERE id=?",
+    [row.id],
+  );
+  assert.equal(preserved.daily_fee, 19);
+  assert.equal(preserved.total_copies, 5);
+  const response = await api.get("/api/v1/media").expect(200);
+  const retro = response.body.data.filter((item) => item.catalog_key);
+  assert.equal(retro.length, 16);
+  const thaiSearch = await api
+    .get("/api/v1/media")
+    .query({ search: "บูมเมอแรง" })
+    .expect(200);
+  assert.equal(thaiSearch.body.data.length, 1);
+  assert.equal(thaiSearch.body.data[0].catalog_key, "boomerang");
+  for (const item of retro) {
+    const image = await api.get(item.image_url).expect(200);
+    assert.match(image.headers["content-type"], /^image\/(png|jpeg)/);
+  }
+  await authorize("patch", `/media/${row.id}`, admin)
+    .send({ image_url: "https://example.com/poster.png" })
+    .expect(400);
+  await authorize("patch", `/media/${row.id}`, admin)
+    .send({ image_url: "/images/retro/../secret.png" })
+    .expect(400);
+  await authorize("patch", `/media/${row.id}`, admin)
+    .send({ release_year: 2015 })
+    .expect(400);
+  await authorize("patch", `/media/${row.id}`, admin)
+    .send({ release_year: 1990.5 })
+    .expect(400);
+  await authorize("patch", `/media/${row.id}`, admin)
+    .send({ language: "unknown" })
+    .expect(400);
+  await api.get("/images/retro/missing.png").expect(404);
+});

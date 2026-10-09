@@ -6,8 +6,8 @@ export async function listMedia(query, admin) {
     values = [];
   if (!admin) where.push("m.archived=FALSE");
   if (query.search) {
-    where.push("m.title LIKE ?");
-    values.push(`%${query.search}%`);
+    where.push("(m.title LIKE ? OR m.original_title LIKE ?)");
+    values.push(`%${query.search}%`, `%${query.search}%`);
   }
   for (const key of ["category", "format"])
     if (query[key]) {
@@ -15,7 +15,7 @@ export async function listMedia(query, admin) {
       values.push(query[key]);
     }
   const [rows] = await pool.execute(
-    `${selection}${where.length ? " WHERE " + where.join(" AND ") : ""} ORDER BY m.id DESC`,
+    `${selection}${where.length ? " WHERE " + where.join(" AND ") : ""} ORDER BY (m.catalog_key IS NOT NULL) DESC, CASE m.language WHEN 'Thai' THEN 0 WHEN 'English' THEN 1 ELSE 2 END, m.category ASC, m.release_year ASC, m.id DESC`,
     values,
   );
   return rows.map((row) => ({ ...row, archived: !!row.archived }));

@@ -36,7 +36,7 @@ The original native-browser confirmation was replaced with an in-app modal. The 
 
 ![Mobile collection](mobile-catalog.png)
 
-The prepared local demo contains a fictional Demo Customer and two returned rentals. Temporary browser test media was removed. Fresh installs seed only the admin and six fictional titles. No online payment or remote production deployment was tested. The deck was rendered and inspected using the artifact runtime, not native PowerPoint.
+The prepared local demo contains a fictional Demo Customer and two returned rentals. Temporary browser test media was removed. Fresh installs now seed the admin and 16 retro titles; see the later retro catalog verification. No online payment or remote production deployment was tested. The deck was rendered and inspected using the artifact runtime, not native PowerPoint.
 
 ## Frontend assignment update — 2026-10-09
 
@@ -45,3 +45,11 @@ New-password strength is enforced during public registration and admin customer 
 ## Fresh-clone submission audit
 
 Both public repositories were freshly cloned on 2026-10-09. Backend Compose started an isolated database and API, initialized six sample titles and the admin account; health/catalog/seeded-admin login returned 200. Frontend Docker image builds from the fresh clone. Current tests: 3 backend unit, 6 backend integration and 4 frontend validator tests, all passing. Final presentation corrects the test count and includes the student identity; the original deck is preserved.
+
+## Retro catalog enhancement — 2026-10-09
+
+See [retro verification](../retro-catalog/VERIFICATION.md) and [source credits](../retro-catalog/SOURCES.md). Current automated checks are 3 backend unit, 7 backend integration and 4 frontend validator tests, all passing. The SQL file was checked against both a new database and the previous schema; repeated imports preserve existing records and shop edits. The local demo now shows 16 Thai/English releases from 1990–2014, with the original six fictional titles archived and all account/rental history retained. All 16 image URLs work through Express and the frontend proxy. Thai images are edited variants; English originals use a matching CSS frame after image-editor rejection.
+
+![Retro catalog desktop](retro-catalog-desktop.png)
+
+![Retro catalog mobile](retro-catalog-mobile.png)
