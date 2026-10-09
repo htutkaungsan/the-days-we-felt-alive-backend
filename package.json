@@ -1,0 +1,28 @@
+{
+  "name": "the-days-we-felt-alive-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test tests/*.test.js",
+    "test:integration": "node --test --test-concurrency=1 tests/integration/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.15.0",
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^17.2.0",
+    "cors": "^2.8.5",
+    "helmet": "^8.1.0",
+    "express-rate-limit": "^8.1.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
+  }
+}

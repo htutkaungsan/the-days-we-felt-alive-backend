@@ -1,0 +1,46 @@
+name: alive-backend
+services:
+  express-api:
+    build: .
+    ports:
+      - "127.0.0.1:${PORT:-3000}:3000"
+    environment:
+      PORT: 3000
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-alive_rental}
+      DB_USER: ${DB_USER:-alive}
+      DB_PASSWORD: ${DB_PASSWORD:-local-db-password-change-me}
+      JWT_SECRET: ${JWT_SECRET:-local-demo-secret-change-before-public-deployment-2026}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-2h}
+      ADMIN_NAME: ${ADMIN_NAME:-Shop Admin}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-admin@example.com}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-ChangeMe123!}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:4200}
+      SEED_SAMPLE_DATA: ${SEED_SAMPLE_DATA:-true}
+    depends_on:
+      database:
+        condition: service_healthy
+    networks: [rental]
+    restart: unless-stopped
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-alive_rental}
+      MYSQL_USER: ${DB_USER:-alive}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-local-db-password-change-me}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-local-root-password-change-me}
+    volumes:
+      - rental-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks: [rental]
+    restart: unless-stopped
+networks:
+  rental:
+    driver: bridge
+volumes:
+  rental-data:
