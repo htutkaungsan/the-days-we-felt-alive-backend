@@ -299,3 +299,16 @@ test("Same-key concurrent requests create exactly one rental, on-time return", a
   assert.equal(returned.body.data.late_fee, 0);
   assert.equal(returned.body.data.total, 0.3);
 });
+
+test("Server rejects weak new passwords in registration and customer create/update", async () => {
+  const weak = {
+    name: "Weak Password Test",
+    email: "weak@example.com",
+    password: "password123!",
+  };
+  await api.post("/api/v1/auth/register").send(weak).expect(400);
+  await authorize("post", "/customers", admin).send(weak).expect(400);
+  await authorize("patch", "/customers/" + userId, admin)
+    .send({ password: "Password123" })
+    .expect(400);
+});

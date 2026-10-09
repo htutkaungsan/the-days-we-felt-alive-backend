@@ -78,7 +78,7 @@ Authorization: Bearer <TOKEN>
 Content-Type: application/json
 ```
 
-Login JWTs expire in 2 hours by default. HS256 verification pins issuer `alive-api` and audience `alive-client`. The backend reloads account role/active status on every protected request. Public registration never accepts a role. Passwords use bcrypt cost 12 and never appear in responses. Auth endpoints allow 50 requests per IP per 15 minutes. Limit responses use 429.
+Login JWTs expire in 2 hours by default. HS256 verification pins issuer `alive-api` and audience `alive-client`. The backend reloads account role/active status on every protected request. Public registration never accepts a role. New passwords require uppercase, lowercase, a number and a symbol. Existing passwords can still be used to log in. Passwords use bcrypt cost 12 and never appear in responses. Auth endpoints allow 50 requests per IP per 15 minutes. Limit responses use 429.
 
 Success envelope: `{"data": ...}`. Lists return `data: []` when empty. Errors use `{"error":{"message":"..."}}`. No SQL details, tokens or password hashes are logged. Unsupported body fields and empty PATCH bodies return 400. Dates use `YYYY-MM-DD` in Asia/Bangkok. Database timestamps are UTC.
 
@@ -150,7 +150,7 @@ Failure example `500`:
 
 **Authentication:** Public.
 
-**Body / parameters:** Name: 1-100 characters. Email: valid, unique, max 150. Password: 8 characters minimum, 72 bytes maximum. Role cannot be supplied.
+**Body / parameters:** Name: 1-100 characters. Email: valid, unique, max 150. Password: 8 characters minimum, 72 bytes maximum, including uppercase, lowercase, a number and a symbol. Role cannot be supplied.
 
 Request JSON:
 
@@ -858,7 +858,7 @@ npm run test:integration
 docker compose -f docker-compose.test.yml down
 ```
 
-Integration tests use disposable MySQL at localhost:3308 and a tmpfs database named `alive_test`. They clear only this test database, never the application database. Two date/fee tests and five integration scenarios cover registration, password filtering, CRUD, validation, JWT expiry, role/ownership checks, last-copy races, same-key retries, rate snapshots, late/on-time returns, repeated returns and archive/deactivation.
+Integration tests use disposable MySQL at localhost:3308 and a tmpfs database named `alive_test`. They clear only this test database, never the application database. Three date/fee/password unit tests and six integration scenarios cover registration, password filtering, CRUD, validation, JWT expiry, role/ownership checks, last-copy races, same-key retries, rate snapshots, late/on-time returns, repeated returns and archive/deactivation.
 
 Browser checks cover registration/login, search/filter, rent, history, reload persistence, admin management and return. Docker startup and database persistence were checked locally. See `docs/verification.md` for the final evidence and `docs/demo-guide.md` for a short presentation walkthrough.
 

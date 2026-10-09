@@ -7,8 +7,8 @@ Checked locally on **2026-10-09 (Asia/Bangkok)**.
 | Backend Docker build and startup                    | Pass: Express and MySQL healthy                                                                                              |
 | Frontend Docker build and API proxy                 | Pass: `/api/v1/health` through port 4200 returns 200                                                                         |
 | Angular production build                            | Pass: initial bundle approximately 371 KB raw                                                                                |
-| Date and fee unit tests                             | 2 / 2 pass                                                                                                                   |
-| MySQL integration scenarios                         | 5 / 5 pass                                                                                                                   |
+| Date and fee unit tests                             | 3 / 3 pass                                                                                                                   |
+| MySQL integration scenarios                         | 6 / 6 pass                                                                                                                   |
 | Customer registration and automatic login           | Pass in Codex browser                                                                                                        |
 | Music filter and online rental                      | Pass, availability decreased immediately                                                                                     |
 | My rentals and page-refresh session restore         | Pass                                                                                                                         |
@@ -37,3 +37,7 @@ The original native-browser confirmation was replaced with an in-app modal. The 
 ![Mobile collection](mobile-catalog.png)
 
 The prepared local demo contains a fictional Demo Customer and two returned rentals. Temporary browser test media was removed. Fresh installs seed only the admin and six fictional titles. No online payment or remote production deployment was tested. The deck was rendered and inspected using the artifact runtime, not native PowerPoint.
+
+## Frontend assignment update — 2026-10-09
+
+New-password strength is enforced during public registration and admin customer creation/password updates. Existing login remains compatible. A new unit test checks strength and the 72-byte bcrypt boundary; a new integration scenario checks all three new-password API paths. Frontend assignment evidence is maintained in the frontend repository `docs/verification.md`.

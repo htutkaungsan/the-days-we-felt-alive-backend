@@ -13,7 +13,7 @@ function validate(body, partial = false) {
     data.name = v.text(body.name, "name", 100);
   if (!partial || body.email !== undefined) data.email = v.email(body.email);
   if (!partial || body.password !== undefined)
-    data.password = v.password(body.password);
+    data.password = v.newPassword(body.password);
   if (body.active !== undefined) {
     if (typeof body.active !== "boolean") fail(400, "active must be boolean");
     data.active = body.active;

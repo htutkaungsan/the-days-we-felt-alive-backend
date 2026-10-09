@@ -25,6 +25,20 @@ export function password(value) {
     fail(400, "Password must be at least 8 characters and at most 72 bytes");
   return value;
 }
+export function newPassword(value) {
+  password(value);
+  if (
+    !/[a-z]/.test(value) ||
+    !/[A-Z]/.test(value) ||
+    !/[0-9]/.test(value) ||
+    !/[^a-zA-Z0-9\s]/.test(value)
+  )
+    fail(
+      400,
+      "Password must include uppercase, lowercase, a number, and a symbol",
+    );
+  return value;
+}
 export function integer(value, name, min, max) {
   if (!Number.isInteger(value) || value < min || value > max)
     fail(400, `${name} must be an integer from ${min} to ${max}`);

@@ -10,7 +10,7 @@ export async function register(req, res) {
   const user = await createCustomer({
     name: v.text(req.body.name, "name", 100),
     email: v.email(req.body.email),
-    password: v.password(req.body.password),
+    password: v.newPassword(req.body.password),
   });
   res.status(201).json({ data: user });
 }
