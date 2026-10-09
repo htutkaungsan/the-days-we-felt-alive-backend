@@ -49,7 +49,34 @@ Node.js 24, Express 5, MySQL 8.4, bcryptjs and jsonwebtoken power the backend. A
 
 ## Manual database import
 
-For tables **and sample data**, import [database/import.sql](database/import.sql) into a selected MySQL database. It includes 16 catalog titles and local image URLs. [database/schema.sql](database/schema.sql) is structure-only and contains no records. See [the import guide](database/README.md) for Workbench, phpMyAdmin and Docker steps. Admin creation remains environment-controlled at backend startup.
+The database can be imported directly using **[database/import.sql](database/import.sql)**. This file creates all three tables and inserts **16 retro catalog titles** (8 music CDs and 8 movie DVDs), including fees, stock and local image URLs. Use this file when you want a ready-to-browse catalog. [database/schema.sql](database/schema.sql) contains table definitions only and does not insert data.
+
+### MySQL Workbench / phpMyAdmin
+
+1. Create a MySQL 8.4 database named `alive_rental` using `utf8mb4` encoding, or select an existing project database.
+2. Select that database before importing. In Workbench, double-click the schema to make it the default; in phpMyAdmin, click the database name.
+3. Open **`database/import.sql`** and execute the entire script in Workbench, or select it from phpMyAdmin's **Import** tab and run the import.
+4. Refresh the tables and verify the imported catalog:
+
+```sql
+SELECT COUNT(*) AS catalog_titles FROM media;
+SELECT title, category, format, release_year, language, image_url FROM media;
+```
+
+A fresh import returns **16 catalog titles**. Re-importing skips existing titles and preserves customers, rental history, edited prices and stock.
+
+### Import into the Docker database
+
+Run these commands from this backend repository:
+
+```sh
+docker compose up -d --build
+docker compose exec -T database sh -c 'exec mysql -u "$MYSQL_USER" -p"$MYSQL_PASSWORD" "$MYSQL_DATABASE"' < database/import.sql
+```
+
+With the default `SEED_SAMPLE_DATA=true`, a fresh Docker setup already creates the tables, seeds the catalog and creates the environment-configured admin automatically. The manual import command also works for an existing database.
+
+A fresh SQL import leaves `users` and `rentals` empty. Start the backend to create the admin using `ADMIN_EMAIL` and `ADMIN_PASSWORD`; customers and rentals are created through the app. If you chose another database name, set `DB_NAME` accordingly. Keep the repository's `public/images/retro/` folder and run the backend to display the artwork: SQL contains image URLs, while the actual images are served by Express. See [the detailed import guide](database/README.md) for more information.
 
 ## Database model
 
