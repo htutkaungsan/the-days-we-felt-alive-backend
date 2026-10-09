@@ -2,6 +2,8 @@
 
 A small rental shop API for music and movie CDs/DVDs. Customers rent online and return physical copies at the shop. Admins maintain the collection, customer accounts and returns. Course: **66-131217 Back-end Software Development**.
 
+**Student:** Htut Kaung San — **b67103023**
+
 ## Quick start
 
 Requirements: Docker Desktop or Docker Engine with Compose. Ports 3017 and 4200 must be free.
@@ -882,7 +884,7 @@ Browser checks cover registration/login, search/filter, rent, history, reload pe
 | Minimal Docker image/Compose/network/volume/env | `Dockerfile`, `docker-compose.yml`, `.env.example`            |
 | Required source folders                         | `src/config`, `controllers`, `middleware`, `models`, `routes` |
 | Separate connected frontend                     | Separate Angular repository                                   |
-| Presentation                                    | `docs/presentation/the-days-we-felt-alive.pptx`               |
+| Presentation                                    | `docs/presentation/the-days-we-felt-alive-final.pptx`               |
 | Public submission and incremental history       | Public GitHub repositories and real Git commits               |
 
 ## Submission repository

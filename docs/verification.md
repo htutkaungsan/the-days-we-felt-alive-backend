@@ -6,7 +6,7 @@ Checked locally on **2026-10-09 (Asia/Bangkok)**.
 | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Backend Docker build and startup                    | Pass: Express and MySQL healthy                                                                                              |
 | Frontend Docker build and API proxy                 | Pass: `/api/v1/health` through port 4200 returns 200                                                                         |
-| Angular production build                            | Pass: initial bundle approximately 371 KB raw                                                                                |
+| Angular production build                            | Pass: initial bundle approximately 616 KB raw (Bootstrap 5; non-fatal budget warning)                                                                                |
 | Date and fee unit tests                             | 3 / 3 pass                                                                                                                   |
 | MySQL integration scenarios                         | 6 / 6 pass                                                                                                                   |
 | Customer registration and automatic login           | Pass in Codex browser                                                                                                        |
@@ -41,3 +41,7 @@ The prepared local demo contains a fictional Demo Customer and two returned rent
 ## Frontend assignment update — 2026-10-09
 
 New-password strength is enforced during public registration and admin customer creation/password updates. Existing login remains compatible. A new unit test checks strength and the 72-byte bcrypt boundary; a new integration scenario checks all three new-password API paths. Frontend assignment evidence is maintained in the frontend repository `docs/verification.md`.
+
+## Fresh-clone submission audit
+
+Both public repositories were freshly cloned on 2026-10-09. Backend Compose started an isolated database and API, initialized six sample titles and the admin account; health/catalog/seeded-admin login returned 200. Frontend Docker image builds from the fresh clone. Current tests: 3 backend unit, 6 backend integration and 4 frontend validator tests, all passing. Final presentation corrects the test count and includes the student identity; the original deck is preserved.
