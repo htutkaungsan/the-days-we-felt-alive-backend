@@ -932,4 +932,3 @@ Backend: https://github.com/htutkaungsan/the-days-we-felt-alive-backend
 
 Frontend: https://github.com/htutkaungsan/the-days-we-felt-alive-frontend
 
-Clone both into sibling folders named `backend` and `frontend` for the documented relative commands.
