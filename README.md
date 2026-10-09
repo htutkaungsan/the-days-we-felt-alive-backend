@@ -47,6 +47,10 @@ A simple layered application: routes select controllers, middleware checks JWT/r
 
 Node.js 24, Express 5, MySQL 8.4, bcryptjs and jsonwebtoken power the backend. Angular 22 powers the separate frontend. Architecture and ERD are also editable in the presentation deck.
 
+## Manual database import
+
+For tables **and sample data**, import [database/import.sql](database/import.sql) into a selected MySQL database. It includes 16 catalog titles and local image URLs. [database/schema.sql](database/schema.sql) is structure-only and contains no records. See [the import guide](database/README.md) for Workbench, phpMyAdmin and Docker steps. Admin creation remains environment-controlled at backend startup.
+
 ## Database model
 
 ![ER diagram](docs/er-diagram.png)

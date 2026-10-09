@@ -1,3 +1,6 @@
+-- Structure only: creates tables without catalog records.
+-- For tables AND 16 sample titles, import database/import.sql instead.
+-- See database/README.md for MySQL Workbench / phpMyAdmin instructions.
 CREATE TABLE IF NOT EXISTS users (
   id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
