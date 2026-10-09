@@ -10,7 +10,11 @@ services:
     ports: ["127.0.0.1:3308:3306"]
     tmpfs: [/var/lib/mysql]
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent",
+        ]
       interval: 3s
       timeout: 5s
       retries: 30
