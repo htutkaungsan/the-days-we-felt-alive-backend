@@ -47,6 +47,10 @@ A simple layered application: routes select controllers, middleware checks JWT/r
 
 Node.js 24, Express 5, MySQL 8.4, bcryptjs and jsonwebtoken power the backend. Angular 22 powers the separate frontend. Architecture and ERD are also editable in the presentation deck.
 
+## Hosted classroom demo
+
+The connected frontend/backend deployment is configured for **https://the-day.yangon-tech-by-okker.site**. It uses a private MySQL database with the 16-title catalog and separate demo accounts. See [hosting instructions](deploy/README.md) for the Docker, Nginx, TLS and data-persistence setup. Demo passwords are shared separately.
+
 ## Manual database import
 
 The database can be imported directly using **[database/import.sql](database/import.sql)**. This file creates all three tables and inserts **16 retro catalog titles** (8 music CDs and 8 movie DVDs), including fees, stock and local image URLs. Use this file when you want a ready-to-browse catalog. [database/schema.sql](database/schema.sql) contains table definitions only and does not insert data.
@@ -923,7 +927,7 @@ Browser checks cover registration/login, search/filter, rent, history, reload pe
 | Minimal Docker image/Compose/network/volume/env | `Dockerfile`, `docker-compose.yml`, `.env.example`            |
 | Required source folders                         | `src/config`, `controllers`, `middleware`, `models`, `routes` |
 | Separate connected frontend                     | Separate Angular repository                                   |
-| Presentation                                    | `docs/presentation/the-days-we-felt-alive-final.pptx`               |
+| Presentation                                    | `docs/presentation/the-days-we-felt-alive-final.pptx`         |
 | Public submission and incremental history       | Public GitHub repositories and real Git commits               |
 
 ## Submission repository

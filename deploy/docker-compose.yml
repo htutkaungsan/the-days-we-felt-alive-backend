@@ -1,0 +1,67 @@
+name: alive-project
+services:
+  database:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    command:
+      [
+        "--innodb-buffer-pool-size=128M",
+        "--max-connections=40",
+        "--performance-schema=OFF",
+      ]
+    volumes: [rental-data:/var/lib/mysql]
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+    mem_limit: 512m
+    networks: [rental]
+    restart: unless-stopped
+  express-api:
+    image: alive-project-api:20261009
+    build: ..
+    environment:
+      PORT: 3000
+      TRUST_PROXY: 1
+      DB_HOST: database
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: 2h
+      ADMIN_NAME: ${ADMIN_NAME}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      CORS_ORIGIN: ${CORS_ORIGIN}
+      SEED_SAMPLE_DATA: ${SEED_SAMPLE_DATA:-true}
+    depends_on:
+      database:
+        condition: service_healthy
+    mem_limit: 256m
+    networks: [rental]
+    restart: unless-stopped
+  web:
+    image: alive-project-web:20261009
+    build: ../../frontend
+    ports: ["127.0.0.1:4217:8080"]
+    depends_on:
+      express-api:
+        condition: service_healthy
+    mem_limit: 128m
+    networks: [rental]
+    restart: unless-stopped
+networks:
+  rental:
+    driver: bridge
+volumes:
+  rental-data:
