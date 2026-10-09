@@ -37,4 +37,4 @@ npm run test:integration
 npm run build
 ```
 
-A fictional Demo Customer with one returned rental may exist in the prepared local demo database. Fresh installations contain only the admin and sample media. Create a new customer during the presentation.
+A fictional Demo Customer with two returned rentals may exist in the prepared local demo database. Fresh installations contain only the admin and sample media. Create a new customer during the presentation.

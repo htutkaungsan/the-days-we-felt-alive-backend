@@ -23,7 +23,7 @@ docker compose ps
 
 ### Separate Angular frontend
 
-The frontend is a separate project/repository. With sibling folders `backend/` and `frontend/`:
+The frontend is a separate project/repository: [Angular frontend](https://github.com/htutkaungsan/the-days-we-felt-alive-frontend). With sibling folders `backend/` and `frontend/`:
 
 ```sh
 cd ../frontend
@@ -884,3 +884,11 @@ Browser checks cover registration/login, search/filter, rent, history, reload pe
 | Separate connected frontend                     | Separate Angular repository                                   |
 | Presentation                                    | `docs/presentation/the-days-we-felt-alive.pptx`               |
 | Public submission and incremental history       | Public GitHub repositories and real Git commits               |
+
+## Submission repository
+
+Backend: https://github.com/htutkaungsan/the-days-we-felt-alive-backend
+
+Frontend: https://github.com/htutkaungsan/the-days-we-felt-alive-frontend
+
+Clone both into sibling folders named `backend` and `frontend` for the documented relative commands.
